@@ -1,3 +1,8 @@
+2013-05-24 - 0.1.1
+* Minor cosmetic updates.
+* Update README and use markdown.
+* Document the geoip::conf definition.
+
 2013-04-08 - 0.1.0
 * Add geoip::conf class to configure the geoipupdate program.
 * Add geoip::common for the main GeoIP package.

@@ -32,7 +32,7 @@ class geoip::conf (
   $userid,
   $licensekey,
   $productids = '106',
-  $ensure = 'present'
+  $ensure     = 'present'
 ) {
 
   if $ensure == 'present' {

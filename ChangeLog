@@ -1,3 +1,5 @@
+* Allow to change owner/group/mode of conf file.
+
 2013-05-24 - 0.1.1
 * Minor cosmetic updates.
 * Update README and use markdown.

@@ -29,6 +29,10 @@
 # Matthias Saou <matthias@saou.eu>
 #
 class geoip::conf (
+  $owner      = 'root',
+  $group      = 'root',
+  # We typically do not want anyone to see the LicenseKey
+  $mode       = '0600',
   $userid,
   $licensekey,
   $productids = '106',
@@ -36,14 +40,13 @@ class geoip::conf (
 ) {
 
   if $ensure == 'present' {
-    include geoip::common
+    include '::geoip::common'
   }
 
   file { '/etc/GeoIP.conf':
-    owner   => 'root',
-    group   => 'root',
-    # We typically don't want anyone to see the LicenseKey
-    mode    => '0600',
+    owner   => $owner,
+    group   => $group,
+    mode    => $mode,
     content => template('geoip/GeoIP.conf.erb'),
     ensure  => $ensure,
   }

@@ -17,21 +17,31 @@ will update databases regularly.
 
 Set defaults in `site.pp` :
 
-    Geoip::File {
-      path        => '/usr/local/share',
-      source_path => 'puppet:///modules/mymodule/GeoIP',
-    }
+```puppet
+Geoip::File {
+  path        => '/usr/local/share',
+  source_path => 'puppet:///modules/mymodule/GeoIP',
+}
+```
 
 For a node where nginx will have its geoip module enabled :
 
-    geoip::file { 'GeoIP.dat':
-      before => Class['nginx'],
-    }
+```puppet
+geoip::file { 'GeoIP.dat':
+  before => Service['nginx'],
+}
+```
 
-For a node which will be downloading updated files from MaxMind directly :
+For a node which will be downloading updated files from MaxMind directly
+using the `geoipupdate` script :
 
-    class { 'geoip::conf':
-      userid     => '12345',
-      licensekey => 'abcdefg12345',
-    }
+```puppet
+class { 'geoip::conf':
+  userid     => '12345',
+  licensekey => 'abcdefg12345',
+  productids => 'GeoIP2-Country 106',
+  group      => 'wheel',
+  mode       => '0640',
+}
+```
 

@@ -4,7 +4,7 @@
 #
 class geoip::common {
  
-  package { 'GeoIP': ensure => installed }
+  package { 'GeoIP': ensure => 'installed' }
 
 }
 
